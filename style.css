@@ -1,0 +1,95 @@
+:root {
+    --primary-color:#333;
+    --secondary-color:#444;
+    --overlay-color:rgba(0,0,0,0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    font-family: 'Catamaran', sans-serif;
+}
+
+.navbar .container .logo {
+    font-size: 35px;
+    margin-left: 100px;
+}
+
+.navbar .container {
+display: grid;
+grid-template-columns: repeat(2,1fr);
+}
+
+.navbar .container .nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 25px;
+    list-style: none;
+}
+
+.nav li {
+    margin: 5px;
+}
+
+.nav li a {
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--secondary-color);
+}
+
+.nav li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s linear;
+}
+
+.nav li a:hover::after {
+   width: 100%;
+
+}
+
+/* end of navigation bar section */
+
+/* Section-one start */
+.section-one {
+    margin-top: 100px;
+    
+    text-align: center;
+}
+
+.section-one .container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+}
+
+.section-one .container h3 {
+    font-size: 35px;
+}
+
+.section-one .container p {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 27px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    color: #fff;
+    background-color: var(--primary-color);
+}
