@@ -94,7 +94,7 @@ grid-template-columns: repeat(2,1fr);
     background-color: var(--primary-color);
 }
 
-/* Section-twostart */
+/* Section-two start */
 .section-two {
     margin-top: 100px;
     
@@ -108,6 +108,7 @@ grid-template-columns: repeat(2,1fr);
     width: 400px;
     margin: auto;
     border-radius: 12px;
+    text-align: center;
 }
 
 .section-two .container {
@@ -119,4 +120,84 @@ grid-template-columns: repeat(2,1fr);
 
 .section-two .container p {
     font-size: 24px;
+}
+/* --------- section-two end ---------------- */
+
+/* section-three start */
+
+.section-three h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    box-shadow: 1px 3px 5px 3px;
+    width: 400px;
+    margin: auto;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.section-three .gallery {
+display: grid;
+grid-template-columns: repeat(3,1fr);
+margin: 50px 0;
+grid-gap: 3px;
+}
+
+.section-three .gallery img , .section-three .gallery a {
+    width: 100%;
+    height: 100%;
+}
+
+.section-three .content-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(73, 166, 233, 0.5);
+    place-items: center;
+    display: grid;
+    z-index: -10;
+    visibility: hidden;
+    
+}
+
+.content-box.open-modal {
+    visibility: visible;
+    z-index: 10;
+  }
+
+.section-three .content-box .modal-box {
+    position: relative;
+   width: 40%;
+   
+  
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px;
+    display: grid;
+    
+}
+
+ .close-icon {
+    text-align: right;
+    cursor: pointer;
+    padding-right: 8px;
+}
+
+.right-arrow {
+    position: absolute;
+    left: 90%;
+    bottom: 50%;
+    cursor: pointer;
+}
+
+.left-arrow {
+    position: absolute;
+    bottom: 50%;
+    left: 4%;
+    cursor: pointer;
+}
+
+.small-img {
+    
 }
