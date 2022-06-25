@@ -168,15 +168,14 @@ grid-gap: 3px;
 
 .section-three .content-box .modal-box {
     position: relative;
-   width: 40%;
-   
-  
+    width: 40%;
     border-radius: 10px;
     background-color: #fff;
     padding: 5px;
     display: grid;
-    
 }
+
+
 
  .close-icon {
     text-align: right;
@@ -189,6 +188,7 @@ grid-gap: 3px;
     left: 90%;
     bottom: 50%;
     cursor: pointer;
+    
 }
 
 .left-arrow {
@@ -196,8 +196,92 @@ grid-gap: 3px;
     bottom: 50%;
     left: 4%;
     cursor: pointer;
+    transition: 0.6s ease;
 }
 
-.small-img {
+.put-img {
+  
+}
+/* Fading animation used in image gallery */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+
+
+/*--------End of section three-----------*/
+
+.section-four h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    box-shadow: 1px 3px 5px 3px;
+    width: 400px;
+    margin: auto;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.section-four .container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+    padding: 10px;
+    margin: 50px 0;
+}
+
+/*expanding and minimizing content box for each 
+frequently asked question */
+.section-four .container .faq {
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px;
+    padding: 5px;
+    text-align: center;
+}
+
+.faq .question {
+    font-size: 23px;
     
+}
+
+/*hide minimize button */
+.question .minimize-btn {
+    display: none;
+}
+
+/*display minimize button */
+.minimize-btn.show {
+    display: block;
+}
+
+/*hide the expand button */
+.expand-btn.hide {
+    display: none;
+}
+
+/*hidden paragraph text */
+.faq .answer {
+    font-size: 19px;
+    border-top: 1px solid var(--secondary-color);
+    display: none;
+    padding: 8px;
+}
+
+/*display paragraph text */
+.answer.show {
+    display: block;
+    
+}
+
+/* used to expand and minimize text content of FAQ */
+.expand-btn i , .minimize-btn i {
+    font-size: 38px;
+    cursor: pointer;
+   padding: 10px;
+   color: var(--primary-color);
 }

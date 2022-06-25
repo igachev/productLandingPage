@@ -2,6 +2,11 @@ let pics = document.querySelectorAll('.pic');
 let contentBox = document.querySelector('.content-box')
 let modalBox = document.querySelector('.modal-box')
 let closeBtn = document.querySelector('.close-icon');
+const question = document.querySelector('.question')
+const answer = document.querySelector('.answer')
+const expandBtns = document.querySelectorAll('.expand-btn')
+const minimizeBtns = document.querySelectorAll('.minimize-btn')
+
 
 let newImg;
 let images = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg']
@@ -10,6 +15,17 @@ let index = 0;
 pics.forEach((pic) => {
     pic.addEventListener('click',currentPic);
 })
+
+expandBtns.forEach((btn) => {
+btn.addEventListener('click',expand)
+})
+
+minimizeBtns.forEach((btn) => {
+    btn.addEventListener('click',minimize)
+})
+
+
+
 
 
 function currentPic(e) {
@@ -58,6 +74,7 @@ function closeGallery(e) {
 }
 
 function nextImage(e) {
+    
     e.preventDefault();
     //remove currently open image
     if(modalBox.contains(newImg)) {
@@ -71,9 +88,16 @@ index += 1;
     if (index > images.length-1) {
      index = 0;
     }
+    
     //update the image in the modal box
     document.querySelector('.put-img').src = images[index]
-    
+   
+    //add fade animation after each click applied to image
+   document.querySelector('.put-img').classList.add('fade')
+   //remove animation from class after it is being used
+  setTimeout(() => {
+    document.querySelector('.put-img').classList.remove('fade')
+  },700)
 }
 
 function previousImage(e) {
@@ -92,6 +116,35 @@ index -= 1;
     }
     //update the image in the modal box
     document.querySelector('.put-img').src = images[index]
-    
-    
+
+    //add fade animation after each click applied to image
+    document.querySelector('.put-img').classList.add('fade')
+    //remove animation from class after it is being used
+    setTimeout(() => {
+        document.querySelector('.put-img').classList.remove('fade')
+      },700)
+}
+
+//expand text content of each FAQ box
+function expand(e) {
+    e.preventDefault();
+    //console.log(e.target.parentElement.parentElement.nextElementSibling)
+    let answer = e.target.parentElement.parentElement.nextElementSibling
+    let expandBtn = e.target.parentElement
+    let minimizeBtn = e.target.parentElement.nextElementSibling
+    answer.classList.add('show')
+    expandBtn.classList.add('hide')
+    minimizeBtn.classList.add('show')
+}
+
+//hide text content of each FAQ box
+function minimize(e) {
+    e.preventDefault();
+    let answer = e.target.parentElement.parentElement.nextElementSibling
+    let expandBtn = e.target.parentElement.previousElementSibling
+    let minimizeBtn = e.target.parentElement
+   // console.log(expandBtn);
+    answer.classList.remove('show')
+    expandBtn.classList.remove('hide')
+    minimizeBtn.classList.remove('show')
 }
