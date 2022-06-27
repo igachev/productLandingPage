@@ -33,7 +33,10 @@ grid-template-columns: repeat(2,1fr);
     justify-content: flex-end;
     padding: 0 25px;
     list-style: none;
+    /*overflow: hidden; add it to media query*/
 }
+
+
 
 .nav li {
     margin: 5px;
@@ -58,6 +61,15 @@ grid-template-columns: repeat(2,1fr);
 .nav li a:hover::after {
    width: 100%;
 
+}
+
+.nav.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: yellowgreen;
+  transition: all 0.3s ease-in-out;
+  
 }
 
 /* end of navigation bar section */
@@ -173,6 +185,7 @@ grid-gap: 3px;
     background-color: #fff;
     padding: 5px;
     display: grid;
+    
 }
 
 
@@ -202,7 +215,9 @@ grid-gap: 3px;
 .put-img {
   
 }
-/* Fading animation used in image gallery */
+
+
+/* Fading animation used for nextImage and previousImage */
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
@@ -213,7 +228,20 @@ grid-gap: 3px;
     to {opacity: 1}
   }
 
+  /*Scale animation used when we close current image */
+.close-anime {
+    animation-name: close-anime;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
 
+@keyframes close-anime {
+    0% {transform: scaleX(1);}
+   
+    100% {transform: scaleX(0);}
+    
+}
 
 /*--------End of section three-----------*/
 
@@ -257,6 +285,7 @@ frequently asked question */
 /*display minimize button */
 .minimize-btn.show {
     display: block;
+   
 }
 
 /*hide the expand button */
@@ -270,6 +299,7 @@ frequently asked question */
     border-top: 1px solid var(--secondary-color);
     display: none;
     padding: 8px;
+    
 }
 
 /*display paragraph text */

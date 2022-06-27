@@ -6,27 +6,41 @@ const question = document.querySelector('.question')
 const answer = document.querySelector('.answer')
 const expandBtns = document.querySelectorAll('.expand-btn')
 const minimizeBtns = document.querySelectorAll('.minimize-btn')
+const navbar = document.querySelector('.nav');
 
 
 let newImg;
 let images = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg']
 let index = 0;
 
+//open clicked image
 pics.forEach((pic) => {
     pic.addEventListener('click',currentPic);
 })
 
+//expand FAQ question
 expandBtns.forEach((btn) => {
 btn.addEventListener('click',expand)
 })
 
+//minimize FAQ question
 minimizeBtns.forEach((btn) => {
     btn.addEventListener('click',minimize)
 })
 
+//add sticky navigation bar on scroll
+window.addEventListener('scroll',addStickyNavbar)
 
-
-
+function addStickyNavbar() {
+    let sticky = navbar.getBoundingClientRect().bottom;
+    console.log(sticky)
+    if(window.pageYOffset >= sticky) {
+        navbar.classList.add('sticky')
+    }
+    else {
+        navbar.classList.remove('sticky')
+    }
+}
 
 function currentPic(e) {
 e.preventDefault();
@@ -54,11 +68,15 @@ document.querySelector('.close-icon').addEventListener('click',closeGallery)
 document.querySelector('.right-arrow').addEventListener('click',nextImage)
 
 document.querySelector('.left-arrow').addEventListener('click',previousImage)
+
 }
 
 function closeGallery(e) { 
     e.preventDefault();
+   
     //when close btn is clicked remove the modal
+    modalBox.classList.add('close-anime')
+    setTimeout(() => {
         contentBox.classList.remove('open-modal')
         //reset modalBox content and insert only
         //close btn, left arrow, right arrow
@@ -71,6 +89,13 @@ function closeGallery(e) {
         //reset index value used for nextImage and previousImage
         //after closing the image gallery
         index = 0;
+
+        modalBox.classList.remove('close-anime')
+    },450)
+        
+        
+        
+       
 }
 
 function nextImage(e) {
@@ -133,6 +158,7 @@ function expand(e) {
     let expandBtn = e.target.parentElement
     let minimizeBtn = e.target.parentElement.nextElementSibling
     answer.classList.add('show')
+    answer.classList.add('fade')
     expandBtn.classList.add('hide')
     minimizeBtn.classList.add('show')
 }
