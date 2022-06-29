@@ -78,15 +78,27 @@ grid-template-columns: repeat(2,1fr);
 
 /* Section-one start */
 .section-one {
-    margin-top: 100px;
-    
-    text-align: center;
+   
+    background-color: var(--primary-color);
+    color: #fff;
+   
 }
 
 .section-one .container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1,1fr);
     grid-gap: 20px;
+}
+
+.section-one .container div img {
+height: 100%;
+width: 100%;
+}
+
+.section-one .container div:last-child {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
 }
 
 .section-one .container h3 {
@@ -95,7 +107,7 @@ grid-template-columns: repeat(2,1fr);
 
 .section-one .container p {
     font-size: 22px;
-    margin-bottom: 15px;
+    
 }
 
 .btn {
@@ -110,14 +122,14 @@ grid-template-columns: repeat(2,1fr);
 
 /* Section-two start */
 .section-two {
-    margin-top: 100px;
-    
+    background-color: #bfbfbf;
     text-align: center;
+    padding: 5px 0;
 }
 
 .section-two h2 {
     font-size: 35px;
-    margin-bottom: 30px;
+    
     box-shadow: 1px 3px 5px 3px;
     width: 400px;
     margin: auto;
@@ -133,10 +145,10 @@ grid-template-columns: repeat(2,1fr);
     background-position: center;
     color: #fff;
     height: 600px;
-    margin: 50px 0;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 20px;
+    margin-top: 10px;
 }
 
 .section-two .container p {
@@ -146,21 +158,28 @@ grid-template-columns: repeat(2,1fr);
 
 /* section-three start */
 
+.section-three {
+    background-color: var(--primary-color);
+   padding: 20px 0;
+}
+
 .section-three h2 {
     font-size: 35px;
-    margin-bottom: 30px;
-    box-shadow: 1px 3px 5px 3px;
+    color: #fff;
+    box-shadow: 1px 3px 5px 3px black;
     width: 400px;
     margin: auto;
     border-radius: 12px;
     text-align: center;
+   
 }
 
 .section-three .gallery {
+    margin-top: 20px;
 display: grid;
 grid-template-columns: repeat(3,1fr);
-margin: 50px 0;
 grid-gap: 3px;
+
 }
 
 .section-three .gallery img , .section-three .gallery a {
@@ -254,6 +273,11 @@ grid-gap: 3px;
 
 /*--------End of section three-----------*/
 
+.section-four {
+    background-color: #bfbfbf;
+    padding: 5px;
+}
+
 .section-four h2 {
     font-size: 35px;
     margin-bottom: 30px;
@@ -269,7 +293,8 @@ grid-gap: 3px;
     grid-template-columns: repeat(2,1fr);
     grid-gap: 20px;
     padding: 10px;
-    margin: 50px 0;
+   
+    
 }
 
 /*expanding and minimizing content box for each 
@@ -323,4 +348,62 @@ frequently asked question */
     cursor: pointer;
    padding: 10px;
    color: var(--primary-color);
+}
+/* ----------end of section-four--------------------- */
+
+.section-five .container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2,1fr);
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+}
+
+.section-five .container ul {
+    list-style: none;
+}
+
+.section-five .container ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.section-five .container .social-media {
+    display: flex;
+    justify-content: center;
+}
+
+.section-five .container .social-media li {
+    padding: 5px 10px;
+}
+
+.section-five .container .contact li small {
+    font-size: 22px;
+}
+
+.section-five .container .company li small {
+    font-size: 22px;
+}
+
+.section-five strong {
+    font-size: 30px;
+}
+
+.section-five p {
+    font-size: 21px;
+}
+
+#email {
+    font-size: 23px;
+    border-radius: 10px;
+    padding: 3px;
+    border-color: #fff;
+    background-color: transparent;
+    color: #fff;
+}
+
+#email::placeholder {
+    color: #fff;
+    opacity: 0.8;
 }
