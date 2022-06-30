@@ -81,18 +81,22 @@ grid-template-columns: repeat(2,1fr);
    
     background-color: var(--primary-color);
     color: #fff;
-   
+    
 }
 
 .section-one .container {
     display: grid;
-    grid-template-columns: repeat(1,1fr);
-    grid-gap: 20px;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 50px;
+}
+
+.section-one .container div:first-child {
+
 }
 
 .section-one .container div img {
-height: 100%;
-width: 100%;
+    max-width: 1100px;
+    height: 100%;
 }
 
 .section-one .container div:last-child {
@@ -208,7 +212,7 @@ grid-gap: 3px;
 
 .section-three .content-box .modal-box {
     position: relative;
-    width: 40%;
+    width: 45%;
     border-radius: 10px;
     background-color: #fff;
     padding: 5px;
@@ -271,6 +275,32 @@ grid-gap: 3px;
     
 }
 
+.expand-faq-anime {
+    animation-name: expand-faq-anime;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;  
+    animation-fill-mode: forwards;
+}
+
+@keyframes expand-faq-anime {
+0% {transform:scaleX(0.4);}
+
+100% {transform:scaleX(1);}
+}
+
+.close-faq-anime {
+    animation-name: close-faq-anime;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;  
+    animation-fill-mode: forwards;
+}
+
+@keyframes close-faq-anime {
+    0% {transform:scaleX(1);}
+    
+    100% {transform:scaleX(0.4);}
+    }
+
 /*--------End of section three-----------*/
 
 .section-four {
@@ -304,7 +334,9 @@ frequently asked question */
     border-radius: 12px;
     padding: 5px;
     text-align: center;
+    
 }
+
 
 .faq .question {
     font-size: 23px;
@@ -339,7 +371,7 @@ frequently asked question */
 /*display paragraph text */
 .answer.show {
     display: block;
-    
+   
 }
 
 /* used to expand and minimize text content of FAQ */
@@ -348,6 +380,14 @@ frequently asked question */
     cursor: pointer;
    padding: 10px;
    color: var(--primary-color);
+   transition: color 0.3s linear;
+}
+
+.expand-btn i:hover {
+    color: #766340;
+}
+.minimize-btn i:hover {
+    color: #766340;
 }
 /* ----------end of section-four--------------------- */
 
@@ -358,6 +398,7 @@ frequently asked question */
     background-color: var(--primary-color);
     color: #fff;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .section-five .container ul {
@@ -372,14 +413,24 @@ frequently asked question */
 .section-five .container .social-media {
     display: flex;
     justify-content: center;
+   
 }
 
 .section-five .container .social-media li {
     padding: 5px 10px;
 }
 
+.social-media li a i {
+    transition: color 0.9s linear;
+}
+
+.social-media li a i:hover {
+    color: #766340;
+}
+
 .section-five .container .contact li small {
     font-size: 22px;
+    margin-left: 15px;
 }
 
 .section-five .container .company li small {
@@ -407,3 +458,49 @@ frequently asked question */
     color: #fff;
     opacity: 0.8;
 }
+
+.submit {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    position: relative;
+}
+
+.submit-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: -1;
+background-color: #766340;
+transform: scaleX(0);
+transform-origin: left;
+transition: 300ms transform ease-in-out;
+}
+
+.submit-slide:hover::before {
+    transform: scaleX(1);
+}
+
+.submit-slide {
+    z-index: 1;
+    transition: 300ms color ease-in-out;
+}
+
+.submit-slide:hover {
+    color: lightgray;
+}
+
+.section-five .copyright {
+    font-size: 24px;
+    color: black;
+    background-color: lightgray;
+    text-align: center;
+}
+

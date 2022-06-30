@@ -157,10 +157,12 @@ function expand(e) {
     let answer = e.target.parentElement.parentElement.nextElementSibling
     let expandBtn = e.target.parentElement
     let minimizeBtn = e.target.parentElement.nextElementSibling
+    let faqBox = e.target.parentElement.parentElement.parentElement
+    faqBox.classList.add('expand-faq-anime')
     answer.classList.add('show')
-    answer.classList.add('fade')
     expandBtn.classList.add('hide')
     minimizeBtn.classList.add('show')
+    
 }
 
 //hide text content of each FAQ box
@@ -169,8 +171,14 @@ function minimize(e) {
     let answer = e.target.parentElement.parentElement.nextElementSibling
     let expandBtn = e.target.parentElement.previousElementSibling
     let minimizeBtn = e.target.parentElement
-   // console.log(expandBtn);
+    let faqBox = e.target.parentElement.parentElement.parentElement
+    console.log(faqBox);
+    faqBox.classList.add('close-faq-anime')
     answer.classList.remove('show')
     expandBtn.classList.remove('hide')
     minimizeBtn.classList.remove('show')
+    faqBox.classList.remove('expand-faq-anime')
+    setTimeout(() => {
+        faqBox.classList.remove('close-faq-anime')
+    },410)
 }
