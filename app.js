@@ -60,6 +60,12 @@ console.log(index);
 newImg.src = element;
 //add the clicked image in the modal box
 modalBox.appendChild(newImg)
+//add scale animation when open an image
+modalBox.classList.add('expand-faq-anime')
+//remove scale animation after being used
+setTimeout(() => {
+    modalBox.classList.remove('expand-faq-anime')
+},401)
 //add modal to our page
 contentBox.classList.add('open-modal')
 //if close btn is clicked modal and image will be removed
@@ -69,6 +75,7 @@ document.querySelector('.right-arrow').addEventListener('click',nextImage)
 
 document.querySelector('.left-arrow').addEventListener('click',previousImage)
 
+document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
 }
 
 function closeGallery(e) { 
@@ -81,7 +88,8 @@ function closeGallery(e) {
         //reset modalBox content and insert only
         //close btn, left arrow, right arrow
         modalBox.innerHTML = `
-        <i class="close-icon fa-solid fa-xmark fa-2x"></i>
+        <p class="img-number">0</p>
+        <i class="close-icon fa-solid fa-xmark fa-4x"></i>
         <i class="right-arrow fa-solid fa-chevron-right fa-3x"></i>
         <i class="left-arrow fa-solid fa-chevron-left fa-3x"></i>
         <img class="put-img" src="" alt="">
@@ -123,6 +131,8 @@ index += 1;
   setTimeout(() => {
     document.querySelector('.put-img').classList.remove('fade')
   },700)
+
+  document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
 }
 
 function previousImage(e) {
@@ -148,6 +158,8 @@ index -= 1;
     setTimeout(() => {
         document.querySelector('.put-img').classList.remove('fade')
       },700)
+
+      document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
 }
 
 //expand text content of each FAQ box

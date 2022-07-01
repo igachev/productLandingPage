@@ -179,10 +179,12 @@ grid-template-columns: repeat(2,1fr);
 }
 
 .section-three .gallery {
-    margin-top: 20px;
+    padding-top: 20px;
 display: grid;
-grid-template-columns: repeat(3,1fr);
-grid-gap: 3px;
+text-align: center;
+justify-content: center;
+grid-template-columns: repeat(auto-fit,200px);
+grid-gap: 6px;
 
 }
 
@@ -220,12 +222,17 @@ grid-gap: 3px;
     
 }
 
-
+.img-number {
+    text-align: center;
+    font-size: 22px;
+}
 
  .close-icon {
-    text-align: right;
+    position: absolute;
+    top: 35px;
+    left: 490px;
     cursor: pointer;
-    padding-right: 8px;
+    
 }
 
 .right-arrow {
