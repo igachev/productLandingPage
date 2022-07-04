@@ -143,8 +143,8 @@ grid-template-columns: repeat(2,1fr);
 
 
 
-.section-two .container {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.6)) , url(img/5.jpg);
+.section-two .container-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.6)) , url(img/8.jpg);
     background-repeat: no-repeat;
     background-position: center;
     color: #fff;
@@ -155,7 +155,19 @@ grid-template-columns: repeat(2,1fr);
     margin-top: 10px;
 }
 
-.section-two .container p {
+.section-two .container-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.6)) , url(img/10.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    color: #fff;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+   
+}
+
+.section-two .container-1,.container-2 p {
     font-size: 24px;
 }
 /* --------- section-two end ---------------- */
@@ -165,6 +177,7 @@ grid-template-columns: repeat(2,1fr);
 .section-three {
     background-color: var(--primary-color);
    padding: 20px 0;
+   
 }
 
 .section-three h2 {
@@ -183,7 +196,7 @@ grid-template-columns: repeat(2,1fr);
 display: grid;
 text-align: center;
 justify-content: center;
-grid-template-columns: repeat(auto-fit,200px);
+grid-template-columns: repeat(4,200px);
 grid-gap: 6px;
 
 }
@@ -229,8 +242,8 @@ grid-gap: 6px;
 
  .close-icon {
     position: absolute;
-    top: 35px;
-    left: 490px;
+    top: 8%;
+    left: 85%;
     cursor: pointer;
     
 }
@@ -272,7 +285,7 @@ grid-gap: 6px;
     animation-name: close-anime;
     animation-duration: 0.4s;
     animation-timing-function: ease-in-out;
-    animation-direction: alternate;
+    animation-direction: forwards;
 }
 
 @keyframes close-anime {
@@ -511,3 +524,55 @@ transition: 300ms transform ease-in-out;
     text-align: center;
 }
 
+/*media queries */
+@media screen and (max-width: 850px) {
+.navbar .container {
+    grid-template-columns: repeat(1,1fr);
+}
+
+.section-one .container {
+    grid-template-columns: repeat(1,1fr);
+}
+
+.section-three .gallery {
+    grid-template-columns: repeat(1,200px);
+}
+
+.section-four .container {
+    grid-template-columns: repeat(1,1fr);
+}
+
+.section-four .faq .question {
+    font-size: 19px;
+    
+}
+
+.section-four .faq .answer {
+    font-size: 17px;
+}
+
+.section-five .container {
+    grid-template-columns: repeat(1,1fr);
+}
+
+.section-five #email {
+    width: 50%;
+    font-size: 17px;
+}
+
+.section-five .submit {
+    font-size: 17px;
+}
+
+.section-five .copyright {
+    font-size: 17px;
+}
+
+.section-five strong {
+    font-size: 21px;
+}
+
+.section-five p {
+    font-size: 17px;
+}
+}
