@@ -377,7 +377,10 @@ frequently asked question */
 /*hide the expand button */
 .expand-btn.hide {
     display: none;
+    
 }
+
+
 
 /*hidden paragraph text */
 .faq .answer {
@@ -394,13 +397,23 @@ frequently asked question */
    
 }
 
+
+.minimize-btn {
+    width: 34px;
+    height: 38.1px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+
 /* used to expand and minimize text content of FAQ */
 .expand-btn i , .minimize-btn i {
     font-size: 38px;
     cursor: pointer;
-   padding: 10px;
+   
    color: var(--primary-color);
    transition: color 0.3s linear;
+   z-index: -100;
 }
 
 .expand-btn i:hover {
@@ -622,4 +635,96 @@ transition: 300ms transform ease-in-out;
 .section-five p {
     font-size: 17px;
 }
+}
+
+@media screen and (max-width:1029px) {
+    .section-three .content-box .modal-box {
+        width:55%;
+        
+    }
+}
+
+@media screen and (max-width:930px) {
+    .section-three .content-box .modal-box {
+        width:60%;
+        
+    }
+
+    .section-three .gallery {
+        grid-template-columns: repeat(3,200px);
+    }
+}
+
+@media screen and (max-width:830px) {
+    .section-three .content-box .modal-box {
+        width:65%;
+        
+    }
+
+    .section-three .gallery {
+        grid-template-columns: repeat(2,200px);
+    }
+}
+
+@media screen and (max-width:730px) {
+    .section-three .content-box .modal-box {
+        width:75%;
+        
+    }
+
+    .section-three .gallery {
+        grid-template-columns: repeat(1,200px);
+    }
+}
+
+@media screen and (max-width:630px) {
+    .section-three .content-box .modal-box {
+        width:80%;
+        
+    }
+}
+
+@media screen and (max-width:530px) {
+    .section-three .content-box .modal-box {
+        width:90%;
+        
+    }
+}
+
+@media screen and (max-width:500px) {
+    .section-three .content-box .modal-box {
+        width:95%;
+    }
+
+    .nav li a {
+        font-size: 13px;
+        
+    }
+
+    
+
+    .section-two h2 {
+        font-size: 16px;  
+        width: 200px;
+    }
+
+    .section-three h2 {
+        font-size: 16px;  
+        width: 200px;
+    }
+
+    .section-four h2 {
+        font-size: 16px;  
+        width: 200px;
+    }
+
+    
+}
+
+@media screen and (max-width:400px) {
+    .section-three .content-box .modal-box {
+        width:90%;
+        
+    }
+
 }
