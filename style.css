@@ -727,4 +727,10 @@ transition: 300ms transform ease-in-out;
         
     }
 
+
+     .navbar .container .nav {
+         /*overflow: hidden; add it to media query*/
+        
+        flex-direction: column;
+    }
 }

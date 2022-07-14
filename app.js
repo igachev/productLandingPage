@@ -34,6 +34,10 @@ window.addEventListener('scroll',addStickyNavbar)
 
 function addStickyNavbar() {
     let sticky = navbar.getBoundingClientRect().bottom;
+    let media = window.matchMedia("(max-width: 400px)")
+    if(media) {
+        sticky = document.querySelector('.first-img').getBoundingClientRect().bottom;
+    }
     console.log(sticky)
     if(window.pageYOffset >= sticky) {
         navbar.classList.add('sticky')
