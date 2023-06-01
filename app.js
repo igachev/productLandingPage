@@ -10,8 +10,10 @@ const navbar = document.querySelector('.nav');
 
 
 let newImg;
-let images = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'
-,'img/5.jpg','img/6.jpg','img/7.jpg']
+/*let images = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'
+,'img/5.jpg','img/6.jpg','img/7.jpg']*/
+let images = Array.from(pics)
+console.log(images[0].href.split('/')[4]);
 let index = 0;
 
 //open clicked image
@@ -49,14 +51,20 @@ function addStickyNavbar() {
 
 function currentPic(e) {
 e.preventDefault();
+console.log(e.target.src.split('/')[4]);
+let element = e.target.src.split('/')[4];
 
-let element = e.target.src;
+newImg = document.createElement('img')
 
-index = (Number(element.match(/.*\/([^/]+)\.([^?]+)/i)[1]) -1 );
+for(let i = 0; i < images.length; i++) {
 
- newImg = document.createElement('img')
+    if(images[i].href.split('/')[4] == element) {
+        index = i;
+        newImg.src = e.target.src
+    }
 
-newImg.src = element;
+}
+
 
 modalBox.appendChild(newImg)
 
