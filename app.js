@@ -50,27 +50,22 @@ function addStickyNavbar() {
 function currentPic(e) {
 e.preventDefault();
 
-//display clicked img url
 let element = e.target.src;
-console.log(element);
-//get only the name of current clicked image and store it
-//in index as number to use it in functions nextImage and
-//previousImage
-//used -1 because all array elements start from index 0
+
 index = (Number(element.match(/.*\/([^/]+)\.([^?]+)/i)[1]) -1 );
-console.log(index);
-//create new image
+
  newImg = document.createElement('img')
-//new image content will be equal to the clicked one
+
 newImg.src = element;
-//add the clicked image in the modal box
+
 modalBox.appendChild(newImg)
-//add scale animation when open an image
+
+modalBox.addEventListener('animationend',() => 
+modalBox.classList.remove('expand-faq-anime'))
+
 modalBox.classList.add('expand-faq-anime')
-//remove scale animation after being used
-setTimeout(() => {
-    modalBox.classList.remove('expand-faq-anime')
-},401)
+
+
 //add modal to our page
 contentBox.classList.add('open-modal')
 //if close btn is clicked modal and image will be removed
@@ -86,12 +81,14 @@ document.querySelector('.img-number').innerText = `${index+1} / ${images.length}
 function closeGallery(e) { 
     e.preventDefault();
    
-    //when close btn is clicked remove the modal
+    
+    modalBox.addEventListener('animationend',onAnimationEnd)
+
     modalBox.classList.add('close-anime')
-    setTimeout(() => {
+
+    function onAnimationEnd() {
         contentBox.classList.remove('open-modal')
-        //reset modalBox content and insert only
-        //close btn, left arrow, right arrow
+        
         modalBox.innerHTML = `
         <p class="img-number">0</p>
         <i class="close-icon fa-solid fa-xmark fa-4x"></i>
@@ -99,75 +96,64 @@ function closeGallery(e) {
         <i class="left-arrow fa-solid fa-chevron-left fa-3x"></i>
         <img class="put-img" src="" alt="">
         `;
-        //reset index value used for nextImage and previousImage
-        //after closing the image gallery
+        
         index = 0;
 
         modalBox.classList.remove('close-anime')
-    },450)
-        
-        
-        
-       
+        modalBox.removeEventListener('animationend',onAnimationEnd)
+    }
+             
 }
 
 function nextImage(e) {
     
     e.preventDefault();
-    //remove currently open image
+
     if(modalBox.contains(newImg)) {
         modalBox.removeChild(newImg)
     }
     
-console.log(index);
-//go to next image after click
 index += 1;
-//if last img is reached next img will be the first one from the array
+
     if (index > images.length-1) {
      index = 0;
     }
     
-    //update the image in the modal box
-    document.querySelector('.put-img').src = images[index]
+    let modalBoxImage = document.querySelector('.put-img')
+    modalBoxImage.src = images[index]
    
-    //add fade animation after each click applied to image
-   document.querySelector('.put-img').classList.add('fade')
-   //remove animation from class after it is being used
-  setTimeout(() => {
-    document.querySelector('.put-img').classList.remove('fade')
-  },700)
-
+    modalBox.addEventListener('animationend',() => {
+        modalBoxImage.classList.remove('fade')
+    });
+    
+    modalBoxImage.classList.add('fade')
+   
   document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
 }
 
 function previousImage(e) {
     e.preventDefault();
-    //remove currently open image
     if(modalBox.contains(newImg)) {
         modalBox.removeChild(newImg)
     }
     
-console.log(index);
-//go to previous image after click
 index -= 1;
-//if first img is reached next img will be the last one from the array
+
     if (index < 0) {
      index = images.length - 1;
     }
-    //update the image in the modal box
-    document.querySelector('.put-img').src = images[index]
+    let modalBoxImage = document.querySelector('.put-img')
+    
+    modalBoxImage.src = images[index]
 
-    //add fade animation after each click applied to image
-    document.querySelector('.put-img').classList.add('fade')
-    //remove animation from class after it is being used
-    setTimeout(() => {
-        document.querySelector('.put-img').classList.remove('fade')
-      },700)
+    modalBox.addEventListener('animationend',() =>
+     modalBoxImage.classList.remove('fade'));
 
+    modalBoxImage.classList.add('fade')
       document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
 }
 
-//expand text content of each FAQ box
+
 function expand(e) {
     e.preventDefault();
     //console.log(e.target.parentElement.parentElement.nextElementSibling)
@@ -175,13 +161,16 @@ function expand(e) {
     let expandBtn = e.target.parentElement
     let minimizeBtn = e.target.parentElement.nextElementSibling
     let faqBox = e.target.parentElement.parentElement.parentElement
+
+    faqBox.addEventListener('animationend',() => {
+        faqBox.classList.remove('expand-faq-anime')
+    })
+
     faqBox.classList.add('expand-faq-anime')
     answer.classList.add('show')
     expandBtn.classList.add('hide')
     minimizeBtn.classList.add('show')
-    setTimeout(() => {
-        faqBox.classList.remove('expand-faq-anime')
-    },410)
+   
 }
 
 //hide text content of each FAQ box
@@ -192,14 +181,14 @@ function minimize(e) {
     console.log(expandBtn)
     let minimizeBtn = e.target.parentElement
     let faqBox = e.target.parentElement.parentElement.parentElement
-    console.log(faqBox);
+    
+    faqBox.addEventListener('animationend',() => {
+        faqBox.classList.remove('close-faq-anime')
+    })
+
     faqBox.classList.add('close-faq-anime')
     expandBtn.classList.remove('hide')
         answer.classList.remove('show')
     minimizeBtn.classList.remove('show')
-   // faqBox.classList.remove('expand-faq-anime')
-    setTimeout(() => {
-        faqBox.classList.remove('close-faq-anime')
-        
-    },410)
+   
 }
