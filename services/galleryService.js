@@ -9,7 +9,7 @@ let index = 0;
 
 export function currentPic(e) {
     e.preventDefault();
-    console.log(e.target.src.split('/')[4]);
+   // console.log(e.target.src.split('/')[4]);
     let element = e.target.src.split('/')[4];
     
     newImg = document.createElement('img')
@@ -44,10 +44,9 @@ export function currentPic(e) {
     document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
     }
     
-     function closeGallery(e) { 
+    export function closeGallery(e) { 
         e.preventDefault();
        
-        
         modalBox.addEventListener('animationend',onAnimationEnd)
     
         modalBox.classList.add('close-anime')
@@ -71,7 +70,7 @@ export function currentPic(e) {
                  
     }
     
-     function nextImage(e) {
+    export function nextImage(e) {
         
         e.preventDefault();
     
@@ -97,7 +96,7 @@ export function currentPic(e) {
       document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
     }
     
-     function previousImage(e) {
+   export  function previousImage(e) {
         e.preventDefault();
         if(modalBox.contains(newImg)) {
             modalBox.removeChild(newImg)
