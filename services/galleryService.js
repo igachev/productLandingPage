@@ -42,6 +42,7 @@ export function currentPic(e) {
     document.querySelector('.left-arrow').addEventListener('click',previousImage)
     
     document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
+  //  console.log(modalBox.children);
     }
     
     export function closeGallery(e) { 
@@ -117,3 +118,4 @@ export function currentPic(e) {
         modalBoxImage.classList.add('fade')
           document.querySelector('.img-number').innerText = `${index+1} / ${images.length}`
     }
+
